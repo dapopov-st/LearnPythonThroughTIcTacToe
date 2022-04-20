@@ -6,7 +6,7 @@
 
 https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/
 
-# My Blog
+# A Guide to Python Through a Game of Tic-Tac-Toe
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
