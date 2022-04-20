@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Guide to Python Through Tic-Tac-Toe | Learn Python Through Tic-Tac-Toe</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Guide to Python Through Tic-Tac-Toe" />
+<meta name="author" content="Dmitriy Popov-Velasco" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="For students of Java and other languages" />
+<meta property="og:description" content="For students of Java and other languages" />
+<link rel="canonical" href="https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/ai/python/2022/04/20/Guide-To-Python-Through-Tic-Tac-Toe-v2.html" />
+<meta property="og:url" content="https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/ai/python/2022/04/20/Guide-To-Python-Through-Tic-Tac-Toe-v2.html" />
+<meta property="og:site_name" content="Learn Python Through Tic-Tac-Toe" />
+<meta property="og:image" content="https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/images/python-logo-master-v3-TM.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-20T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/images/python-logo-master-v3-TM.png" />
+<meta property="twitter:title" content="Guide to Python Through Tic-Tac-Toe" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Dmitriy Popov-Velasco"},"dateModified":"2022-04-20T00:00:00-05:00","datePublished":"2022-04-20T00:00:00-05:00","description":"For students of Java and other languages","headline":"Guide to Python Through Tic-Tac-Toe","image":"https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/images/python-logo-master-v3-TM.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/ai/python/2022/04/20/Guide-To-Python-Through-Tic-Tac-Toe-v2.html"},"url":"https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/ai/python/2022/04/20/Guide-To-Python-Through-Tic-Tac-Toe-v2.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/LearnPythonThroughTIcTacToe/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://dapopov-st.github.io/LearnPythonThroughTIcTacToe/feed.xml" title="Learn Python Through Tic-Tac-Toe" /><link rel="shortcut icon" type="image/x-icon" href="/LearnPythonThroughTIcTacToe/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/LearnPythonThroughTIcTacToe/">Learn Python Through Tic-Tac-Toe</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/LearnPythonThroughTIcTacToe/about/">About Me</a><a class="page-link" href="/LearnPythonThroughTIcTacToe/search/">Search</a><a class="page-link" href="/LearnPythonThroughTIcTacToe/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Guide to Python Through Tic-Tac-Toe</h1><p class="page-description">For students of Java and other languages</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-20T00:00:00-05:00" itemprop="datePublished">
+        Apr 20, 2022
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Dmitriy Popov-Velasco</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      27 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/LearnPythonThroughTIcTacToe/categories/#AI">AI</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/LearnPythonThroughTIcTacToe/categories/#Python">Python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/dapopov-st/LearnPythonThroughTIcTacToe/tree/master/_notebooks/2022-04-20-Guide-To-Python-Through-Tic-Tac-Toe-v2.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/LearnPythonThroughTIcTacToe/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/dapopov-st/LearnPythonThroughTIcTacToe/master?filepath=_notebooks%2F2022-04-20-Guide-To-Python-Through-Tic-Tac-Toe-v2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/LearnPythonThroughTIcTacToe/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/dapopov-st/LearnPythonThroughTIcTacToe/blob/master/_notebooks/2022-04-20-Guide-To-Python-Through-Tic-Tac-Toe-v2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/LearnPythonThroughTIcTacToe/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fdapopov-st%2FLearnPythonThroughTIcTacToe%2Fblob%2Fmaster%2F_notebooks%2F2022-04-20-Guide-To-Python-Through-Tic-Tac-Toe-v2.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/LearnPythonThroughTIcTacToe/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h3"><a href="#PART-1:-NON-OOP-BASICS">PART 1: NON-OOP BASICS </a></li>
+<li class="toc-entry toc-h2"><a href="#The-non-OOP-code-for-the-game-is-below-">The non-OOP code for the game is below  </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Importing-Modules">Importing Modules </a></li>
+<li class="toc-entry toc-h4"><a href="#Python-Data-Types">Python Data Types </a></li>
+<li class="toc-entry toc-h4"><a href="#Lists">Lists </a></li>
+<li class="toc-entry toc-h4"><a href="#Tuples-and-Tuple-Unpacking">Tuples and Tuple Unpacking </a></li>
+<li class="toc-entry toc-h3"><a href="#PART-2:-OOP">PART 2: OOP </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-04-20-Guide-To-Python-Through-Tic-Tac-Toe-v2.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>This is a brief guide to Python for users with a knowledge of another language and familiarity with recursion (for example, AP CSA students towards the end of the academic year). It uses minimax, a recursive algorithm which is well explained between 11:19 and 20:57 in <a href="https://www.youtube.com/watch?v=eey91kzfOZs&amp;ab_channel=CS50">CS50 Minimax</a>.  If you're unfamiliar with minimax, it is highly recommended that you watch that part of the video first.
+<br> The first part of the guide will focus on non-OOP concepts, and I'll introduce some basic OOP Python basics along with the OOP version of the game in the second part.  The OOP version is, in my opinion, cleaner and easier to write since the key aspects of the game's state can be shared among the methods of the class (ie, we don't have to think as hard about which functions need which arguments), but I will present it separately in order to make the exposition more gradual.</em></strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<!-- # Table of contents
+1. [Non-OOP Code](#nonoop)
+2. [Some paragraph](#paragraph1)
+    1. [Sub paragraph](#subparagraph1)
+3. [Getting Help](#help)
+
+## This is the introduction <a name="introduction"></a>
+Some introduction text, formatted in heading 2 style
+
+## Some paragraph <a name="paragraph1"></a>
+The first paragraph text
+
+### Sub paragraph <a name="subparagraph1"></a>
+This is a sub paragraph, formatted in heading 3 style
+
+## Another paragraph <a name="paragraph2"></a>
+The second paragraph text -->
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="PART-1:-NON-OOP-BASICS">
+<a class="anchor" href="#PART-1:-NON-OOP-BASICS" aria-hidden="true"><span class="octicon octicon-link"></span></a>PART 1: NON-OOP BASICS<a class="anchor-link" href="#PART-1:-NON-OOP-BASICS"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>First, here's my non-OOP version of the code for the game of Tic-Tac-Toe.  The OOP version is presented later in this document</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-non-OOP-code-for-the-game-is-below-">
+<a class="anchor" href="#The-non-OOP-code-for-the-game-is-below-" aria-hidden="true"><span class="octicon octicon-link"></span></a>The non-OOP code for the game is below <a name="nonoop"></a><a class="anchor-link" href="#The-non-OOP-code-for-the-game-is-below-"> </a>
+</h2>
+<div class="highlight"><pre><span></span><span class="sd">"""This program lets a person place the first piece on a tic-tac-toe board.  The computer uses the</span>
+<span class="sd">minimax algorithm to ensure that the person never wins (a tie is possible).  The game is played</span>
+<span class="sd">in the console and numbers for available position are displayed for the person playing.</span>
+<span class="sd"> This feature requires the use of two auxiliary functions.  In addition, the best possible</span>
+<span class="sd"> score and the best move are calculated in a single run of the minimax algorithm."""</span>
+
+<span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># will use this to introduce a pause between the person's and computer's choice</span>
+
+<span class="n">person_choices</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">computer_choices</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">gameboard</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">],</span>
+             <span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">),</span>
+             <span class="p">[</span><span class="s1">'4'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">],</span>
+             <span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">),</span>
+             <span class="p">[</span><span class="s1">'7'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">]]</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">,</span> <span class="n">gameboard</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="s2">"person"</span>
+    <span class="n">game_over</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># no moves yet, will track how many moves forward that the computer will evaluate the board</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Game board: "</span><span class="p">)</span>
+    <span class="n">print_gameboard</span><span class="p">(</span><span class="n">gameboard</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">game_over</span><span class="p">:</span>  <span class="c1"># Score starts with 0, so not score is true, once 10 or -10, not score will be false</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"person"</span><span class="p">:</span>
+            <span class="n">is_max</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">make_move</span><span class="p">(</span><span class="n">gameboard</span><span class="p">,</span> <span class="s2">"person"</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">)</span>
+            <span class="n">print_gameboard</span><span class="p">(</span><span class="n">gameboard</span><span class="p">)</span>
+
+            <span class="n">_</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">game_over</span> <span class="o">=</span> <span class="n">check_winner</span><span class="p">(</span>
+                <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">"Tie"</span> <span class="ow">and</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">winner</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">game_over</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Tie"</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="s2">"computer"</span>
+
+        <span class="k">elif</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"computer"</span><span class="p">:</span>
+            <span class="n">is_max</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">make_move</span><span class="p">(</span><span class="n">gameboard</span><span class="p">,</span> <span class="s2">"computer"</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer's move: "</span><span class="p">)</span>
+            <span class="n">print_gameboard</span><span class="p">(</span><span class="n">gameboard</span><span class="p">)</span>
+
+            <span class="n">_</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">game_over</span> <span class="o">=</span> <span class="n">check_winner</span><span class="p">(</span>
+                <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">"Tie"</span> <span class="ow">and</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">winner</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">game_over</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Tie"</span><span class="p">)</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="s2">"person"</span>
+
+
+<span class="k">def</span> <span class="nf">print_gameboard</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Prints the board"""</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">make_move</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_max</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""make_move function takes in the board, the user, depth, and is_max. </span>
+<span class="sd">    is_max is True if it's the person's term, False otherwise.  </span>
+<span class="sd">    This function requires input from the user and</span>
+<span class="sd">    definitively places the piece, hence it's not used in minimax"""</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"person"</span><span class="p">:</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your placement 1 - 9: "</span><span class="p">))</span>
+                <span class="k">while</span> <span class="p">(</span><span class="n">position</span> <span class="ow">in</span> <span class="n">person_choices</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">position</span> <span class="ow">in</span> <span class="n">computer_choices</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="s2">"You either did not enter an integer between 1 and 9 or the position is taken"</span><span class="p">)</span>
+                    <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                        <span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your placement 1 - 9: "</span><span class="p">))</span>
+
+            <span class="k">elif</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"computer"</span><span class="p">:</span>
+                <span class="n">_</span><span class="p">,</span> <span class="o">*</span><span class="n">bestMove</span> <span class="o">=</span> <span class="n">minimax</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">,</span>
+                                       <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="n">convert_to_pos</span><span class="p">(</span><span class="o">*</span><span class="n">bestMove</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">er</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"You must enter an integer"</span><span class="p">,</span> <span class="n">er</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+            <span class="k">break</span>
+
+
+<span class="k">def</span> <span class="nf">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Places the user's piece at the specified position on the board"""</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="s2">"X"</span> <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"person"</span> <span class="k">else</span> <span class="s2">"O"</span>
+    <span class="c1"># fills out the first row of of the board</span>
+    <span class="n">position_helper</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+    <span class="c1"># fills out the second row of of the board</span>
+    <span class="n">position_helper</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+    <span class="c1"># fills out the third row of of the board</span>
+    <span class="n">position_helper</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">position_helper</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""Used in the place_position function to avoid repetition"""</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">board</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">a</span><span class="p">)]</span> <span class="o">=</span> <span class="n">symbol</span>
+            <span class="k">if</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s1">'X'</span><span class="p">:</span>
+                <span class="n">person_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s1">'O'</span><span class="p">:</span>
+                <span class="n">computer_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">convert_to_pos</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">"""Converts board coordinates to a position 1-9 on the board"""</span>
+    <span class="n">positionsDict</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">4</span><span class="p">,</span>
+                     <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">6</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">7</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">8</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">9</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">positionsDict</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)]</span>
+
+
+<span class="k">def</span> <span class="nf">convert_pos_to_board</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+    <span class="sd">"""Converts a position 1-9 on the board to board coordinates """</span>
+    <span class="n">boardDict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span>
+        <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">9</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">boardDict</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">minimax</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">,</span> <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"tuple ('best_score', 'best_move_row', 'best_move_col')"</span><span class="p">:</span>
+    <span class="sd">"""The minimax algorithm evaluates all future positions, assuming that the opponent</span>
+<span class="sd">    plays optimally in the future.  It returns the score, row, and column of the best move"""</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="s2">"person"</span> <span class="k">if</span> <span class="n">is_max</span> <span class="k">else</span> <span class="s2">"computer"</span>
+    <span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">check_winner</span><span class="p">(</span><span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">score</span> <span class="o">==</span> <span class="o">-</span><span class="mi">10</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">score</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>  <span class="c1"># come back to this and see if can fix</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">person_choices</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">computer_choices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">is_max</span><span class="p">:</span>  <span class="c1"># person's turn</span>
+        <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"X"</span> <span class="ow">and</span> <span class="n">board</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"O"</span><span class="p">:</span>
+                    <span class="n">position</span> <span class="o">=</span> <span class="n">convert_to_pos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+                    <span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">minimax</span><span class="p">(</span>
+                        <span class="n">board</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+                    <span class="n">person_choices</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">convert_pos_to_board</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+                    <span class="c1"># undoing the move and rewriting the num on board</span>
+                    <span class="n">board</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
+                    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">best_score</span><span class="p">:</span>
+                        <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="n">score</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span>
+
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># repetitive logic, but easier to see the algorithm at a glance this way</span>
+        <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"X"</span> <span class="ow">and</span> <span class="n">board</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"O"</span><span class="p">:</span>
+                    <span class="n">position</span> <span class="o">=</span> <span class="n">convert_to_pos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+                    <span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">minimax</span><span class="p">(</span>
+                        <span class="n">board</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+                    <span class="n">computer_choices</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">convert_pos_to_board</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+                    <span class="n">board</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
+                    <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
+                        <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="n">score</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span>
+
+    <span class="k">return</span> <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span>
+
+
+<span class="k">def</span> <span class="nf">check_winner</span><span class="p">(</span><span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"tuple ('score', 'result', 'game_over')"</span><span class="p">:</span>
+    <span class="sd">"""Given user, person_choices, and computer_choices, checks for the winner.</span>
+<span class="sd">    Return the score, winner/tie/"", and True if the game is over/False if not"""</span>
+    <span class="n">all_winning</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+                   <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>  <span class="c1"># tuple of tuples of all winning positions</span>
+
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">all_winning</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">person_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">person_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="n">person_choices</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">"Player wins"</span><span class="p">,</span> <span class="kc">True</span>
+
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">all_winning</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">computer_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">computer_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="n">computer_choices</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="s2">"Computer wins"</span><span class="p">,</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">person_choices</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">computer_choices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Tie"</span><span class="p">,</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="kc">False</span>
+
+
+<span class="n">main</span><span class="p">(</span><span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">,</span> <span class="n">gameboard</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Importing-Modules">
+<a class="anchor" href="#Importing-Modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importing Modules<a class="anchor-link" href="#Importing-Modules"> </a>
+</h4>
+<p><a id="modules"><span style="color:blue; font-size: 200%;font-family:Georgia">Importing modules and packages</span></a>
+<br><br>
+Python has two main ways of importing packages or modules <br>
+<br> <strong>Method 1:</strong></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">module_or_package</span>
+</pre></div>
+<p><strong>Method 2:</strong></p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">module_or_package</span> <span class="kn">import</span> <span class="n">function_or_class_name</span>
+</pre></div>
+<p>If you use Method 1, you'll need to reference the module/package followed by a dot and function/class name</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#sleep for half a second</span>
+</pre></div>
+<p>If you use Method 2, you don't need to reference the module/package, but run a higher risk of namespace collisions</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+<p>If you had your own function named 'sleep', you would overwrite the sleep function imported from time <br>
+<br> <strong>Notes</strong>:</p>
+<ul>
+<li>When Python imports a module/package, it essentially pastes its code. It is a recommendeded good practice to place your import statements at the top of your program.</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Python-Data-Types">
+<a class="anchor" href="#Python-Data-Types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python Data Types<a class="anchor-link" href="#Python-Data-Types"> </a>
+</h4>
+<p><span style="color:blue; font-size: 200%;font-family:Georgia">Python Data Types</span>
+<br><br>
+The following link has a great summary <a href="https://medium.com/analytics-vidhya/data-types-in-python-506009234f89">Python Data Types</a>.
+<br> There is an important distinction between <em>mutable</em> and <em>immutable</em> data type</p>
+<ul>
+<li>Lists, dictionaries, and sets are mutable, meaning that their elements can be reassigned to different values after creation</li>
+<li>
+<p>Tuples, strings, Numbers, etc. are immutable
+<br> For example, inside the gameboard list, there are lists (inside []) and tuples (inside ()).  Only the values inside lists can be changed.  If we try to change (<em>mutate</em>) a value inside one of the tuples, we will get an error.</p>
+<div class="highlight"><pre><span></span><span class="n">gameboard</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">],</span>
+              <span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">),</span>
+              <span class="p">[</span><span class="s1">'4'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">],</span>
+              <span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">),</span>
+              <span class="p">[</span><span class="s1">'7'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">]]</span>
+</pre></div>
+</li>
+<li>Python has truthy and falsy values.  0, False, None, "", [], (), {}, set(), etc. are falsy, all other values are truthy.</li>
+<li>We will cover some key aspects of Python data structures below.</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Lists">
+<a class="anchor" href="#Lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists<a class="anchor-link" href="#Lists"> </a>
+</h4>
+<p><a id="lists"><span style="color:blue; font-size: 200%;font-family:Georgia"> Lists in Python</span></a>
+<br>
+<br>Lists in Python are mutable, iterable, and indexable. These are somewhat similar to ArrayLists in Java and very similar to arrays in Javascript.  Unlike ArrayLists in Java, Python lists can contain elements of different data types.  In practice, however, lists are usually used to store elements of the same data type.</p>
+<p><br> Here are some basic operations on a list.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">7</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">last</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">last</span>
+<span class="mi">100</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+<p>In the following example, elements of the two-dimensional list <em>board</em> are updated to symbol (symbol = "X" if user == "person" else "O").  The position is then appended to either the list of person or computer choices.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">position_helper</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span><span class="s2">"""Used in the place_position function to avoid repetition"""</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">board</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">a</span><span class="p">)]</span> <span class="o">=</span> <span class="n">symbol</span>
+            <span class="k">if</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s1">'X'</span><span class="p">:</span>
+                <span class="n">person_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s1">'O'</span><span class="p">:</span>
+                <span class="n">computer_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+</pre></div>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Tuples-and-Tuple-Unpacking">
+<a class="anchor" href="#Tuples-and-Tuple-Unpacking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tuples and Tuple Unpacking<a class="anchor-link" href="#Tuples-and-Tuple-Unpacking"> </a>
+</h4>
+<p><span style="color:blue; font-size: 200%;font-family:Georgia">Tuples and Tuple Unpacking</span>
+<br>
+<br>Unlike lists, tuples are immutable.  They also often contain heterogeneous data types, as we will see in the examples of unpacked tuples below.  In addition, tuples are more performant than lists: as often there is a trade-off between performance and flexibility (the ability to mutate the list here).
+<br> Tuples in Python are denoted mainly by commas and the parentheses are optional. They can be unpacked into individual variables.  For example, the function _check<em>winner</em> returns a tuple containing three elements. We are not interested in assigning a value to the first element, and by convention _ is used for such variables, as in the following examples.</p>
+<div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">game_over</span> <span class="o">=</span> <span class="n">check_winner</span><span class="p">(</span>
+    <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+    <span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">minimax</span><span class="p">(</span>
+                        <span class="n">board</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+</pre></div>
+<p>In the second example, two variables were stored in _ since minimax returns a tuple of three elements.
+We could, of course, also have stored them for future use as follows</p>
+<div class="highlight"><pre><span></span><span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">list_</span> <span class="o">=</span> <span class="n">minimax</span><span class="p">(</span>
+                        <span class="n">board</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+</pre></div>
+<p>Since minimax returns best_score, best_move_row, best_move<em>col, list</em>[0] would be best_move<em>row and list</em>[1] best_move_col. 
+<br> _Please feel free to igore the Remark 1 on your first read.
+<br>Sometimes a function may require a tuple argument.  For example, suppose we want to pass an (x,y) coordinate pair to function <em>describe</em>.  In this case, we would need to use the parentheses as in the following example.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="n">coord</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"This coordinate's x value is </span><span class="si">{</span><span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> and y value is </span><span class="si">{</span><span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">describe</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="n">This</span> <span class="n">coordinate</span><span class="s1">'s x value is 3 and y value is 4</span>
+</pre></div>
+<p>The <em>print</em> function will be described below.<br>
+<br> IMPORTANT:Notice how when * is used to the right of the equal sign, it packs the values into a tuple and when it is inside a function signature (or any place on the left of equal sign), it unpacks them.<code>python</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remark 1: As a sidenote, list<em> is a list</em>. This is a built-in data type in Python, and an underscore can be used so that Python does not confuse it with the list constructor (more on OOP later, but if you're curious, see the sidenote below).</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'123'</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span><span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="ne">TypeError</span><span class="p">:</span> <span class="s1">'list'</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">callable</span>
+<span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">list</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'Python'</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span><span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="ne">TypeError</span><span class="p">:</span> <span class="s1">'list'</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">callable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="nb">list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'Python'</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'P'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'t'</span><span class="p">,</span> <span class="s1">'h'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">,</span> <span class="s1">'n'</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'123'</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">]</span>
+</pre></div>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:Blue; font-size: 200%;font-family:Georgia"> Dictionaries in Python </span>
+<br><br>Dictionaries associate keys to values in Python.  Here's the general structure:</p>
+<div class="highlight"><pre><span></span><span class="n">dict_</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span><span class="p">:</span><span class="n">val1</span><span class="p">,</span><span class="n">key2</span><span class="p">:</span><span class="n">val2</span><span class="p">,</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+<p>Since dict is a data type in Python, I'm using dict_.</p>
+<p><br> The keys must be hashable (immutable and comparable to other keys), which enables rapid retrieval of values.  In addition, the retrieval is convenient: if you had to retrieve an element from a list, you would either need to know its index or search for it in O(n) time.  If you're using a dictionary, you can retrieve a value present in dictionary without using an index or searching.  This can be done in approximately O(1) time.
+<br> In the example below, a position number is passed as input and board coordinates are returned.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_pos_to_board</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+    <span class="sd">"""Converts a position 1-9 on the board to board coordinates """</span>
+    <span class="n">boardDict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span>
+        <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">9</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">boardDict</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+</pre></div>
+<p>If an integer not between 1 and 9 were to be passed, we would get a KeyError.  Since we made sure that the integer is always between 1 and 9 in the make_move function, this will not happen in our code.<br>
+<br>In general, though, if we are ever in a sitiation where we do not want our code to crash if a user is trying to pass in a key that's not in the dictionary, we could use the dictionary's <em>get</em> method, replacing <em>boardDict[pos]</em> with <em>boardDict.get(pos,0)</em>.  This method would return the value passed in as the second argument (0 in this case) if a key that's not in the dictionary is passed.</p>
+<p><br> By dictionaries contain key-value pairs.  By default, if we write <em>key in boardDict</em>, Python will loop through the keys.  If we want to loop through the values, we would use <em>val in boardDict.values()</em></p>
+<div class="highlight"><pre><span></span><span class="n">boardDict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span>
+        <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">9</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)}</span>
+<span class="n">evens_only</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> <span class="c1">#another way to instantiate a dictionary</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">boardDict</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">evens_only</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">boardDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evens_only</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="p">{</span><span class="mi">2</span><span class="p">:(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
+</pre></div>
+<p>If we want to perform some operation on the values of the dictionary, we can do this using  .values() method as in the following example.</p>
+<div class="highlight"><pre><span></span><span class="n">vals_add_to_even</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">boardDict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">vals_add_to_even</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals_add_to_even</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+</pre></div>
+<p>If we want to perform some operation on both keys and values of the dictionary, we can do this using .items() method as in the following example.</p>
+<div class="highlight"><pre><span></span><span class="n">evens_only</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> 
+<span class="n">vals_add_to_even</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">boardDict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span><span class="k">if</span> <span class="n">key</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>        <span class="n">evens_only</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">boardDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">vals_add_to_even</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">evens_only</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals_add_to_even</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="p">{</span><span class="mi">2</span><span class="p">:(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span><span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+</pre></div>
+<p><br>Dictionaries in Python 3.7 and above preserve insertion order, they can be sorted, reversed, etc.  For more detail, please see <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">https://docs.python.org/3/tutorial/datastructures.html#dictionaries</a> .___</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:Blue; font-size: 200%;font-family:Georgia"> The _print_ Function and f-strings</span></p>
+<p>The example above includes an f-string.  This is Python's way of doing string interpolation, which means evaluating the string at the specified values (3 for coord[0] and 4 for coord[1] above).<br>
+<br> Python's <em>print</em> function is very versatile and can take multiple inputs.</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">,</span><span class="s2">"World"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Hello</span> <span class="n">World</span>
+</pre></div>
+<p>The <em>sep</em> keyword parameter can be configured to <em>separate</em> the arguments by something other than " ".</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"***"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="o">***</span><span class="mi">2</span><span class="o">***</span><span class="mi">3</span>
+</pre></div>
+<p>The <em>end</em> keyword parameter can be configured to <em>end line</em> with something other than "\n"</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Python"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Hello</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Python</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">"&lt;---&gt;"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Python"</span><span class="p">)</span>
+</pre></div>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Hello&lt;---&gt;Python</p>
+<hr>
+</blockquote>
+</blockquote>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:Blue; font-size: 200%;font-family:Georgia"> Getting Help in Python</span>
+<br><br></p>
+<p>To get help on a built-in function, one would use the help() function</p>
+<div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">Prints</span> <span class="n">the</span> <span class="n">values</span> <span class="n">to</span> <span class="n">a</span> <span class="n">stream</span><span class="p">,</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="n">by</span> <span class="n">default</span><span class="o">.</span>
+    <span class="n">Optional</span> <span class="n">keyword</span> <span class="n">arguments</span><span class="p">:</span><span class="n">file</span><span class="p">:</span>  <span class="n">a</span> <span class="n">file</span><span class="o">-</span><span class="n">like</span> <span class="nb">object</span> <span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="n">defaults</span> <span class="n">to</span> <span class="n">the</span> <span class="n">current</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span>    <span class="n">sep</span><span class="p">:</span>   <span class="n">string</span> <span class="n">inserted</span> <span class="n">between</span> <span class="n">values</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">space</span><span class="o">.</span>
+    <span class="n">end</span><span class="p">:</span>   <span class="n">string</span> <span class="n">appended</span> <span class="n">after</span> <span class="n">the</span> <span class="n">last</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">newline</span><span class="o">.</span>
+    <span class="n">flush</span><span class="p">:</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">forcibly</span> <span class="n">flush</span> <span class="n">the</span> <span class="n">stream</span><span class="o">.</span>
+</pre></div>
+<p>This function can also be run at the command line, which is also a good place to do quick experiments ;-)  To do this.
+<br> python
+<br> help(print)</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Help on built-in function print in module builtins:print(...)    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)...</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Press q to exit help</p>
+<p>Type exit() to exit Python.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:Blue; font-size: 200%;font-family:Georgia">Positional and Keyword Arguments</span>
+<br><br>
+There are more details here, but as a first-order approximation, the positional arguments are mandatory their corresponding parameters appear first in the signature.  The keyword arguments are optional. Their corresponding parameters follow the positional parameters and can be identified by the = sign.
+<br>Let's examine the signature of the print function, namely</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+<p>The function accepts multiple positional arguments as indicated by <em>value,...</em>, which is also commonly denoted by *args. The remaining arguments will be accepted as keyword arguments.  Please see the following example.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">,</span><span class="s1">'our'</span><span class="p">,</span><span class="s1">'world'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="n">hello</span> <span class="n">our</span> <span class="n">world</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'end'</span><span class="p">:</span><span class="s1">'???'</span><span class="p">,</span><span class="s1">'sep'</span><span class="p">:</span><span class="s1">'!'</span><span class="p">}</span><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">hello</span><span class="err">!</span><span class="n">our</span><span class="err">!</span><span class="n">world</span><span class="err">???</span><span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<p><em>kwargs</em> is a dictionary, which we'll cover in more detail later.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># signature(describe)</span>
+<span class="c1"># signature(print)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:blue; font-size: 200%;font-family:Georgia"> Exception Handling in Python </span>
+<br><br>
+Let's examine the following function in detail (I removed the docstring for concision)</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_move</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_max</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"person"</span><span class="p">:</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your placement 1 - 9: "</span><span class="p">))</span>
+                <span class="k">while</span> <span class="p">(</span><span class="n">position</span> <span class="ow">in</span> <span class="n">person_choices</span><span class="p">)</span> <span class="ow">or</span> \
+                    <span class="p">(</span><span class="n">position</span> <span class="ow">in</span> <span class="n">computer_choices</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">"You either did not enter an integer between 1 and 9 \ </span>
+                    <span class="ow">or</span> <span class="n">the</span> <span class="n">position</span> <span class="ow">is</span> <span class="n">taken</span><span class="s2">")</span>
+                    <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                        <span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your placement 1 - 9: "</span><span class="p">))</span>
+
+            <span class="k">elif</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"computer"</span><span class="p">:</span>
+                <span class="n">_</span><span class="p">,</span> <span class="o">*</span><span class="n">bestMove</span> <span class="o">=</span> <span class="n">minimax</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">,</span>
+                                       <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="n">convert_to_pos</span><span class="p">(</span><span class="o">*</span><span class="n">bestMove</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">er</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"You must enter an integer"</span><span class="p">,</span> <span class="n">er</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+            <span class="k">break</span>
+
+<span class="err">`</span>
+</pre></div>
+<p>If the user enters an input that cannot be converted to an integer (word 'five' instead of number 5, for example), then Python will throw a ValueError.  If we do not handle it, our program will crash.  In Python, exceptions can be handled with try-except statements.  We <em>try</em> to do something, and if it breaks, the code will go through the except statements from top to bottom (hence we should put the most specific ones towards the top, just as with if-elif-else statements).  The <em>else</em> statement will run if no <em>except</em> ran.  We can also have a <em>finally</em> statement at the end to tie up the loose ends. The <em>finally</em> statement will always run and is useful for many tasks (ex: displaying a final message, closing files, etc.)</p>
+<p><br> <em>Sidenote (can be skipped on first pass): Could we have handled the exceptions with classical if-else logic?  Probably yes, but this generally invovles more work.  Python's philosophy is EAFP: “it’s easier to ask for forgiveness than permission” language, not  LBYL: “look before you leap” language (such as Java). Python also has a notion of "duck typing", where we care more about the behavior of an object rather than it's type.  For example, we would find the sum over list or tuple elements in the same way, so we could write a sinle function that would work for both data types (see example below). Contrast this with a statically typed language such as Java, where objects (or primitive types) cannot change types after the initial declaration.</em></p>
+<div class="highlight"><pre><span></span><span class="c1"># Example of duck typing</span>
+<span class="k">def</span> <span class="nf">generic_sum</span><span class="p">(</span><span class="n">list_or_tuple</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">list_or_tuple</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">elt</span>
+    <span class="k">return</span> <span class="n">total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generic_sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generic_sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generic_sum</span><span class="p">(</span><span class="n">list_or_tuple</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">list_or_tuple</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">elt</span>
+    <span class="k">return</span> <span class="n">total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generic_sum</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generic_sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6
+6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:blue; font-size: 200%;font-family:Georgia"> Default Values and Type Annotations in Python </span>
+<br><br>
+Python does not require us to specify the return and parameter types. This allows it to be more flexible, going along with the idea of duck typing.  However, as in example above, we can annotate some or all of the types for the parameters and the return value.  Python will ignore these annotations, but these can be helpful to another user or a tools used in conjunction with Python (linters, type checkers, IDEs, etc).</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:blue; font-size: 200%;font-family:Georgia"> List and Dictionary Comprehensions </span>
+<br><br>Python is known for its powerful and flexible list comprehensions.</p>
+<p><br>These are also more readable than map/apply/filter patterns which are available in Python, but would be the main resort in languages such as Javascript.  I'm not using list comprehensions in the code above, but I'll present some examples below.  <em>For the questions of removing all instances of a specified number from a list, how would you do it in Java?</em></p>
+<div class="highlight"><pre><span></span><span class="c1">#Squaring all elements in a list</span>
+<span class="n">l_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">l_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">elt</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">l_1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l_2</span><span class="p">)</span>
+<span class="c1">#&gt;&gt;&gt; [1, 4, 9, 16, 25]</span>
+
+<span class="n">l_2_evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">elt</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">l_1</span> <span class="k">if</span> <span class="n">elt</span><span class="o">**</span><span class="mi">2</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l_2_evens</span><span class="p">)</span>
+
+<span class="c1">#&gt;&gt;&gt; [4, 16]</span>
+
+<span class="c1"># A real-life use case: removing elements from a list</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="c1">#&gt;&gt;&gt;[1, 3, 2, 2, 2, 4, 5, 6] # only removes the first 2!</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">l_proper</span> <span class="o">=</span> <span class="p">[</span><span class="n">elt</span> <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">l</span> <span class="k">if</span> <span class="n">elt</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l_proper</span><span class="p">)</span>
+</pre></div>
+<p><br> Now let's refactor some of the code given in the Lists section using list and dictionary comprehensions.</p>
+<div class="highlight"><pre><span></span><span class="n">boardDict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span>
+        <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">9</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)}</span>
+<span class="c1">#BEFORE: 5 lines of code</span>
+<span class="n">evens_only</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> <span class="c1">#another way to instantiate a dictionary</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">boardDict</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">evens_only</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">boardDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evens_only</span><span class="p">)</span>
+<span class="c1">#&gt;&gt;&gt; {2: (0, 2), 4: (2, 0), 6: (2, 4), 8: (4, 2)}</span>
+<span class="c1">#AFTER: 2 lines of code</span>
+<span class="n">evens_only_compr</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">boardDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">boardDict</span> <span class="k">if</span> <span class="n">key</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evens_only_compr</span><span class="p">)</span>
+<span class="c1">#&gt;&gt;&gt; {2: (0, 2), 4: (2, 0), 6: (2, 4), 8: (4, 2)}</span>
+
+<span class="c1">#BEFORE: 5 lines of code</span>
+<span class="n">vals_add_to_even</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">boardDict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">vals_add_to_even</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals_add_to_even</span><span class="p">)</span>
+<span class="c1">#&gt;&gt;&gt; [(0, 0), (0, 2), (0, 4), (2, 0), (2, 2), (2, 4), (4, 0), (4, 2), (4, 4)]</span>
+
+<span class="c1">#AFTER: 2 lines of code</span>
+<span class="n">vals_add_to_even_compr</span> <span class="o">=</span> <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">boardDict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vals_add_to_even_compr</span><span class="p">)</span>
+<span class="c1">#&gt;&gt;&gt; [(0, 0), (0, 2), (0, 4), (2, 0), (2, 2), (2, 4), (4, 0), (4, 2), (4, 4)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="PART-2:-OOP">
+<a class="anchor" href="#PART-2:-OOP" aria-hidden="true"><span class="octicon octicon-link"></span></a>PART 2: OOP<a class="anchor-link" href="#PART-2:-OOP"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span style="color:blue; font-size: 200%;font-family:Georgia"> Classes and Objects </span></p>
+<p>Python is object-oriented but lacks the access modifiers (eg, private, protected, etc.) present in languages such as Java.  We will discuss solutions to this after we cover the basics.
+<br> An OOP version of the game is below</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""This program lets a person place the first piece on a Tic-Tac-Toe board.  The computer uses the</span>
+<span class="sd">    minimax algorithm to ensure that the person never wins (a tie is possible).  The game is played</span>
+<span class="sd">    in the console and numbers for available position are displayed for the person playing.</span>
+<span class="sd">    This feature requires the use of two auxiliary functions.  In addition, the best possible</span>
+<span class="sd">    score and the best move are calculated in a single run of the minimax algorithm."""</span>
+
+<span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># will use this to introduce a pause between the person's and computer's choice</span>
+
+
+<span class="k">class</span> <span class="nc">TicTacToeGame</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">],</span>
+                          <span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">),</span>
+                          <span class="p">[</span><span class="s1">'4'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">],</span>
+                          <span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">),</span>
+                          <span class="p">[</span><span class="s1">'7'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'|'</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">]]</span>
+
+    <span class="k">def</span> <span class="nf">run_game</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="s2">"person"</span>
+        <span class="n">game_over</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># no moves yet, will track how many moves forward that the computer will evaluate the board</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Game board: "</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_gameboard</span><span class="p">()</span>
+
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">game_over</span><span class="p">:</span>  <span class="c1"># Score starts with 0, so not score is true, once 10 or -10, not score will be false</span>
+            <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"person"</span><span class="p">:</span>
+                <span class="n">is_max</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">make_move</span><span class="p">(</span><span class="s2">"person"</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_gameboard</span><span class="p">()</span>
+
+                <span class="n">_</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">game_over</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_winner</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">"Tie"</span> <span class="ow">and</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">winner</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">game_over</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">"Tie"</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="s2">"computer"</span>
+
+            <span class="k">elif</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"computer"</span><span class="p">:</span>
+                <span class="n">is_max</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">make_move</span><span class="p">(</span><span class="s2">"computer"</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer's move: "</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_gameboard</span><span class="p">()</span>
+
+                <span class="n">_</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">game_over</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_winner</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">"Tie"</span> <span class="ow">and</span> <span class="n">winner</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">winner</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">game_over</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">"Tie"</span><span class="p">)</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="s2">"person"</span>
+
+    <span class="k">def</span> <span class="nf">print_gameboard</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""Prints the board"""</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">)):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">make_move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_max</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""make_move function takes in the board, the user, depth, and is_max. </span>
+<span class="sd">        is_max is True if it's the person's term, False otherwise.  </span>
+<span class="sd">        This function requires input from the user and</span>
+<span class="sd">        definitively places the piece, hence it's not used in minimax"""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"person"</span><span class="p">:</span>
+                    <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                        <span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your placement 1 - 9: "</span><span class="p">))</span>
+                    <span class="k">while</span> <span class="p">(</span><span class="n">position</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">position</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span><span class="p">):</span>
+                        <span class="nb">print</span><span class="p">(</span>
+                            <span class="s2">"You either did not enter an integer between 1 and 9 or the position is taken"</span><span class="p">)</span>
+                        <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                            <span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your placement 1 - 9: "</span><span class="p">))</span>
+
+                <span class="k">elif</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"computer"</span><span class="p">:</span>
+                    <span class="n">_</span><span class="p">,</span> <span class="o">*</span><span class="n">bestMove</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimax</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">)</span>
+                    <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_pos</span><span class="p">(</span><span class="o">*</span><span class="n">bestMove</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">er</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"You must enter an integer"</span><span class="p">,</span> <span class="n">er</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+                <span class="k">break</span>
+
+    <span class="k">def</span> <span class="nf">place_position</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""Places the user's piece at the specified position on the board"""</span>
+        <span class="n">symbol</span> <span class="o">=</span> <span class="s2">"X"</span> <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="s2">"person"</span> <span class="k">else</span> <span class="s2">"O"</span>
+        <span class="c1"># fills out the first row of of the board</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position_helper</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+        <span class="c1"># fills out the second row of of the board</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position_helper</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+        <span class="c1"># fills out the third row of of the board</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position_helper</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">position_helper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""Used in the place_position function to avoid repetition"""</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">position</span> <span class="o">==</span> <span class="n">i</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">a</span><span class="p">)]</span> <span class="o">=</span> <span class="n">symbol</span>
+                <span class="k">if</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s1">'X'</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s1">'O'</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">convert_to_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">"""Converts board coordinates to a position 1-9 on the board"""</span>
+        <span class="n">positionsDict</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">4</span><span class="p">,</span>
+                         <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">6</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">7</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">8</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">9</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">positionsDict</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">convert_pos_to_board</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+        <span class="sd">"""Converts a position 1-9 on the board to board coordinates """</span>
+        <span class="n">boardDict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">:</span> <span class="p">(</span>
+            <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">6</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">9</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="n">boardDict</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">minimax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">is_max</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"tuple ('best_score', 'best_move_row', 'best_move_col')"</span><span class="p">:</span>
+        <span class="sd">"""The minimax algorithm evaluates all future positions, assuming that the opponent</span>
+<span class="sd">        plays optimally in the future.  It returns the score, row, and column of the best move"""</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="s2">"person"</span> <span class="k">if</span> <span class="n">is_max</span> <span class="k">else</span> <span class="s2">"computer"</span>
+        <span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_winner</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">score</span> <span class="o">==</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">score</span> <span class="o">==</span> <span class="o">-</span><span class="mi">10</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">score</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>  <span class="c1"># come back to this and see if can fix</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">is_max</span><span class="p">:</span>  <span class="c1"># person's turn</span>
+            <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"X"</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"O"</span><span class="p">:</span>
+                        <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_pos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+                        <span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimax</span><span class="p">(</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+                        <span class="c1"># The call above will build up a recursive stack and 'write' on the board + append</span>
+                        <span class="c1"># to person_choices and/or self.computer_choices.  Will need to undo these side-effects below</span>
+                        <span class="c1"># since all we want minimax to return is the best next move</span>
+                        <span class="c1"># Because place_position will call position_helper, which will append to person_choices</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_pos_to_board</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+                        <span class="c1"># undoing the move and rewriting the num on board</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
+                        <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">best_score</span><span class="p">:</span>
+                            <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="n">score</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span>
+
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># repetitive logic, but easier to see the algorithm at a glance this way</span>
+            <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"X"</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">][</span><span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"O"</span><span class="p">:</span>
+                        <span class="n">position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_pos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">place_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+                        <span class="n">score</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">minimax</span><span class="p">(</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_pos_to_board</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">gameboard</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">position</span>
+                        <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
+                            <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span> <span class="o">=</span> <span class="n">score</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span>
+
+        <span class="k">return</span> <span class="n">best_score</span><span class="p">,</span> <span class="n">best_move_row</span><span class="p">,</span> <span class="n">best_move_col</span>
+
+    <span class="k">def</span> <span class="nf">check_winner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"tuple ('score', 'result', 'game_over')"</span><span class="p">:</span>
+        <span class="sd">"""Given user, person_choices, and computer_choices, checks for the winner.</span>
+<span class="sd">        Return the score, winner/tie/"", and True if the game is over/False if not"""</span>
+        <span class="n">all_winning</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+                       <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>  <span class="c1"># tuple of tuples of all winning positions</span>
+
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">all_winning</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">"Player wins"</span><span class="p">,</span> <span class="kc">True</span>
+
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">all_winning</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span> <span class="ow">and</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span><span class="p">:</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="s2">"Computer wins"</span><span class="p">,</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">person_choices</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">computer_choices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Tie"</span><span class="p">,</span> <span class="kc">True</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="kc">False</span>
+
+
+<span class="n">game</span> <span class="o">=</span> <span class="n">TicTacToeGame</span><span class="p">()</span>
+<span class="n">game</span><span class="o">.</span><span class="n">run_game</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="dapopov-st/LearnPythonThroughTIcTacToe"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/LearnPythonThroughTIcTacToe/ai/python/2022/04/20/Guide-To-Python-Through-Tic-Tac-Toe-v2.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/LearnPythonThroughTIcTacToe/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/LearnPythonThroughTIcTacToe/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/LearnPythonThroughTIcTacToe/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An AI-forward introduction to Python for students of other languages</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/LearnPythonThroughTIcTacToe/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/LearnPythonThroughTIcTacToe/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
