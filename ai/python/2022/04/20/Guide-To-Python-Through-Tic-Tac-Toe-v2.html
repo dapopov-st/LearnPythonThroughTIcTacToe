@@ -132,14 +132,25 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h3"><a href="#PART-1:-NON-OOP-BASICS">PART 1: NON-OOP BASICS </a></li>
-<li class="toc-entry toc-h2"><a href="#The-non-OOP-code-for-the-game-is-below-">The non-OOP code for the game is below  </a>
+<li class="toc-entry toc-h3"><a href="#PART-1:-NON-OOP-BASICS">PART 1: NON-OOP BASICS </a>
 <ul>
+<li class="toc-entry toc-h4"><a href="#The-Non-OOP-Code">The Non-OOP Code </a></li>
 <li class="toc-entry toc-h4"><a href="#Importing-Modules">Importing Modules </a></li>
 <li class="toc-entry toc-h4"><a href="#Python-Data-Types">Python Data Types </a></li>
 <li class="toc-entry toc-h4"><a href="#Lists">Lists </a></li>
 <li class="toc-entry toc-h4"><a href="#Tuples-and-Tuple-Unpacking">Tuples and Tuple Unpacking </a></li>
-<li class="toc-entry toc-h3"><a href="#PART-2:-OOP">PART 2: OOP </a></li>
+<li class="toc-entry toc-h4"><a href="#Dictionaries-in-Python">Dictionaries in Python </a></li>
+<li class="toc-entry toc-h4"><a href="#The-print-Function-and-f-strings">The print Function and f-strings </a></li>
+<li class="toc-entry toc-h4"><a href="#Getting-Help-in-Python">Getting Help in Python </a></li>
+<li class="toc-entry toc-h4"><a href="#Positional-and-Keyword-Arguments">Positional and Keyword Arguments </a></li>
+<li class="toc-entry toc-h4"><a href="#Exception-Handling-in-Python">Exception Handling in Python </a></li>
+<li class="toc-entry toc-h4"><a href="#Default-Values-and-Type-Annotations-in-Python">Default Values and Type Annotations in Python </a></li>
+<li class="toc-entry toc-h4"><a href="#List-and-Dictionary-Comprehensions">List and Dictionary Comprehensions </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#PART-2:-OOP">PART 2: OOP </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Classes-and-Objects">Classes and Objects </a></li>
 </ul>
 </li>
 </ul><!--
@@ -211,9 +222,9 @@ The second paragraph text -->
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-non-OOP-code-for-the-game-is-below-">
-<a class="anchor" href="#The-non-OOP-code-for-the-game-is-below-" aria-hidden="true"><span class="octicon octicon-link"></span></a>The non-OOP code for the game is below <a name="nonoop"></a><a class="anchor-link" href="#The-non-OOP-code-for-the-game-is-below-"> </a>
-</h2>
+<h4 id="The-Non-OOP-Code">
+<a class="anchor" href="#The-Non-OOP-Code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Non-OOP Code<a class="anchor-link" href="#The-Non-OOP-Code"> </a>
+</h4>
 <div class="highlight"><pre><span></span><span class="sd">"""This program lets a person place the first piece on a tic-tac-toe board.  The computer uses the</span>
 <span class="sd">minimax algorithm to ensure that the person never wins (a tie is possible).  The game is played</span>
 <span class="sd">in the console and numbers for available position are displayed for the person playing.</span>
@@ -418,9 +429,7 @@ The second paragraph text -->
 <h4 id="Importing-Modules">
 <a class="anchor" href="#Importing-Modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importing Modules<a class="anchor-link" href="#Importing-Modules"> </a>
 </h4>
-<p><a id="modules"><span style="color:blue; font-size: 200%;font-family:Georgia">Importing modules and packages</span></a>
-<br><br>
-Python has two main ways of importing packages or modules <br>
+<p>Python has two main ways of importing packages or modules <br>
 <br> <strong>Method 1:</strong></p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">module_or_package</span>
 </pre></div>
@@ -449,10 +458,9 @@ Python has two main ways of importing packages or modules <br>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Python-Data-Types">
-<a class="anchor" href="#Python-Data-Types" aria-hidden="true"><span class="octicon octicon-link"></span></a><span style="color:blue; font-size: 200%;font-family:Georgia">Python Data Types</span><a class="anchor-link" href="#Python-Data-Types"> </a>
+<a class="anchor" href="#Python-Data-Types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Python Data Types<a class="anchor-link" href="#Python-Data-Types"> </a>
 </h4>
-<p><br><br>
-The following link has a great summary <a href="https://medium.com/analytics-vidhya/data-types-in-python-506009234f89">Python Data Types</a>.
+<p>The following link has a great summary <a href="https://medium.com/analytics-vidhya/data-types-in-python-506009234f89">Python Data Types</a>.
 <br> There is an important distinction between <em>mutable</em> and <em>immutable</em> data type</p>
 <ul>
 <li>Lists, dictionaries, and sets are mutable, meaning that their elements can be reassigned to different values after creation</li>
@@ -480,9 +488,7 @@ The following link has a great summary <a href="https://medium.com/analytics-vid
 <h4 id="Lists">
 <a class="anchor" href="#Lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists<a class="anchor-link" href="#Lists"> </a>
 </h4>
-<p><a id="lists"><span style="color:blue; font-size: 200%;font-family:Georgia"> Lists in Python</span></a>
-<br>
-<br>Lists in Python are mutable, iterable, and indexable. These are somewhat similar to ArrayLists in Java and very similar to arrays in Javascript.  Unlike ArrayLists in Java, Python lists can contain elements of different data types.  In practice, however, lists are usually used to store elements of the same data type.</p>
+<p>Lists in Python are mutable, iterable, and indexable. These are somewhat similar to ArrayLists in Java and very similar to arrays in Javascript.  Unlike ArrayLists in Java, Python lists can contain elements of different data types.  In practice, however, lists are usually used to store elements of the same data type.</p>
 <p><br> Here are some basic operations on a list.</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">7</span>
@@ -529,9 +535,7 @@ The following link has a great summary <a href="https://medium.com/analytics-vid
 <h4 id="Tuples-and-Tuple-Unpacking">
 <a class="anchor" href="#Tuples-and-Tuple-Unpacking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tuples and Tuple Unpacking<a class="anchor-link" href="#Tuples-and-Tuple-Unpacking"> </a>
 </h4>
-<p><span style="color:blue; font-size: 200%;font-family:Georgia">Tuples and Tuple Unpacking</span>
-<br>
-<br>Unlike lists, tuples are immutable.  They also often contain heterogeneous data types, as we will see in the examples of unpacked tuples below.  In addition, tuples are more performant than lists: as often there is a trade-off between performance and flexibility (the ability to mutate the list here).
+<p>Unlike lists, tuples are immutable.  They also often contain heterogeneous data types, as we will see in the examples of unpacked tuples below.  In addition, tuples are more performant than lists: as often there is a trade-off between performance and flexibility (the ability to mutate the list here).
 <br> Tuples in Python are denoted mainly by commas and the parentheses are optional. They can be unpacked into individual variables.  For example, the function _check<em>winner</em> returns a tuple containing three elements. We are not interested in assigning a value to the first element, and by convention _ is used for such variables, as in the following examples.</p>
 <div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">game_over</span> <span class="o">=</span> <span class="n">check_winner</span><span class="p">(</span>
     <span class="n">person_choices</span><span class="p">,</span> <span class="n">computer_choices</span><span class="p">)</span>
@@ -588,8 +592,10 @@ We could, of course, also have stored them for future use as follows</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:Blue; font-size: 200%;font-family:Georgia"> Dictionaries in Python </span>
-<br><br>Dictionaries associate keys to values in Python.  Here's the general structure:</p>
+<h4 id="Dictionaries-in-Python">
+<a class="anchor" href="#Dictionaries-in-Python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dictionaries in Python<a class="anchor-link" href="#Dictionaries-in-Python"> </a>
+</h4>
+<p>Dictionaries associate keys to values in Python.  Here's the general structure:</p>
 <div class="highlight"><pre><span></span><span class="n">dict_</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span><span class="p">:</span><span class="n">val1</span><span class="p">,</span><span class="n">key2</span><span class="p">:</span><span class="n">val2</span><span class="p">,</span><span class="o">...</span><span class="p">}</span>
 </pre></div>
 <p>Since dict is a data type in Python, I'm using dict_.</p>
@@ -640,7 +646,9 @@ We could, of course, also have stored them for future use as follows</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:Blue; font-size: 200%;font-family:Georgia"> The _print_ Function and f-strings</span></p>
+<h4 id="The-print-Function-and-f-strings">
+<a class="anchor" href="#The-print-Function-and-f-strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>The print Function and f-strings<a class="anchor-link" href="#The-print-Function-and-f-strings"> </a>
+</h4>
 <p>The example above includes an f-string.  This is Python's way of doing string interpolation, which means evaluating the string at the specified values (3 for coord[0] and 4 for coord[1] above).<br>
 <br> Python's <em>print</em> function is very versatile and can take multiple inputs.</p>
 <div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -676,8 +684,9 @@ We could, of course, also have stored them for future use as follows</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:Blue; font-size: 200%;font-family:Georgia"> Getting Help in Python</span>
-<br><br></p>
+<h4 id="Getting-Help-in-Python">
+<a class="anchor" href="#Getting-Help-in-Python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Help in Python<a class="anchor-link" href="#Getting-Help-in-Python"> </a>
+</h4>
 <p>To get help on a built-in function, one would use the help() function</p>
 <div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="o">&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
@@ -708,9 +717,10 @@ We could, of course, also have stored them for future use as follows</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:Blue; font-size: 200%;font-family:Georgia">Positional and Keyword Arguments</span>
-<br><br>
-There are more details here, but as a first-order approximation, the positional arguments are mandatory their corresponding parameters appear first in the signature.  The keyword arguments are optional. Their corresponding parameters follow the positional parameters and can be identified by the = sign.
+<h4 id="Positional-and-Keyword-Arguments">
+<a class="anchor" href="#Positional-and-Keyword-Arguments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Positional and Keyword Arguments<a class="anchor-link" href="#Positional-and-Keyword-Arguments"> </a>
+</h4>
+<p>There are more details here, but as a first-order approximation, the positional arguments are mandatory their corresponding parameters appear first in the signature.  The keyword arguments are optional. Their corresponding parameters follow the positional parameters and can be identified by the = sign.
 <br>Let's examine the signature of the print function, namely</p>
 <div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -727,23 +737,6 @@ There are more details here, but as a first-order approximation, the positional 
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -786,24 +779,6 @@ print(...)
 </div>
     
 
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># signature(describe)</span>
-<span class="c1"># signature(print)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -815,9 +790,10 @@ print(...)
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:blue; font-size: 200%;font-family:Georgia"> Exception Handling in Python </span>
-<br><br>
-Let's examine the following function in detail (I removed the docstring for concision)</p>
+<h4 id="Exception-Handling-in-Python">
+<a class="anchor" href="#Exception-Handling-in-Python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exception Handling in Python<a class="anchor-link" href="#Exception-Handling-in-Python"> </a>
+</h4>
+<p>Let's examine the following function in detail (I removed the docstring for concision)</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_move</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_max</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -907,9 +883,10 @@ Let's examine the following function in detail (I removed the docstring for conc
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:blue; font-size: 200%;font-family:Georgia"> Default Values and Type Annotations in Python </span>
-<br><br>
-Python does not require us to specify the return and parameter types. This allows it to be more flexible, going along with the idea of duck typing.  However, as in example above, we can annotate some or all of the types for the parameters and the return value.  Python will ignore these annotations, but these can be helpful to another user or a tools used in conjunction with Python (linters, type checkers, IDEs, etc).</p>
+<h4 id="Default-Values-and-Type-Annotations-in-Python">
+<a class="anchor" href="#Default-Values-and-Type-Annotations-in-Python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Values and Type Annotations in Python<a class="anchor-link" href="#Default-Values-and-Type-Annotations-in-Python"> </a>
+</h4>
+<p>Python does not require us to specify the return and parameter types. This allows it to be more flexible, going along with the idea of duck typing.  However, as in example above, we can annotate some or all of the types for the parameters and the return value.  Python will ignore these annotations, but these can be helpful to another user or a tools used in conjunction with Python (linters, type checkers, IDEs, etc).</p>
 <hr>
 
 </div>
@@ -918,8 +895,10 @@ Python does not require us to specify the return and parameter types. This allow
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:blue; font-size: 200%;font-family:Georgia"> List and Dictionary Comprehensions </span>
-<br><br>Python is known for its powerful and flexible list comprehensions.</p>
+<h4 id="List-and-Dictionary-Comprehensions">
+<a class="anchor" href="#List-and-Dictionary-Comprehensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>List and Dictionary Comprehensions<a class="anchor-link" href="#List-and-Dictionary-Comprehensions"> </a>
+</h4>
+<p>Python is known for its powerful and flexible list comprehensions.</p>
 <p><br>These are also more readable than map/apply/filter patterns which are available in Python, but would be the main resort in languages such as Javascript.  I'm not using list comprehensions in the code above, but I'll present some examples below.  <em>For the questions of removing all instances of a specified number from a list, how would you do it in Java?</em></p>
 <div class="highlight"><pre><span></span><span class="c1">#Squaring all elements in a list</span>
 <span class="n">l_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
@@ -986,7 +965,9 @@ Python does not require us to specify the return and parameter types. This allow
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="color:blue; font-size: 200%;font-family:Georgia"> Classes and Objects </span></p>
+<h4 id="Classes-and-Objects">
+<a class="anchor" href="#Classes-and-Objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes and Objects<a class="anchor-link" href="#Classes-and-Objects"> </a>
+</h4>
 <p>Python is object-oriented but lacks the access modifiers (eg, private, protected, etc.) present in languages such as Java.  We will discuss solutions to this after we cover the basics.
 <br> An OOP version of the game is below</p>
 
